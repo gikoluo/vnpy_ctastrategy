@@ -169,7 +169,7 @@ class CtaManager(QtWidgets.QWidget):
         editor: SettingEditor = SettingEditor(parameters, class_name=class_name)
         n: int = editor.exec_()
 
-        if n == editor.Accepted:
+        if n == QtWidgets.QDialog.Accepted:
             setting: dict = editor.get_setting()
             vt_symbol: str = setting.pop("vt_symbol")
             strategy_name: str = setting.pop("strategy_name")
@@ -316,7 +316,7 @@ class StrategyManager(QtWidgets.QFrame):
         editor: SettingEditor = SettingEditor(parameters, strategy_name=strategy_name)
         n: int = editor.exec_()
 
-        if n == editor.Accepted:
+        if n == QtWidgets.QDialog.Accepted:
             setting: dict = editor.get_setting()
             self.cta_engine.edit_strategy(strategy_name, setting)
 
